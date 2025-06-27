@@ -38,6 +38,13 @@ export default {
         return {
             email: "",
             password: "",
+            googleUrl: "https://accounts.google.com/o/oauth2/auth",
+            googleClientId: "32892685276-9kvlp8e23s5kd84md4unted08fnlpao9.apps.googleusercontent.com",
+            googleRedirectUrl: "http://localhost:3000/oauth/google/redirect",
+            // 인가코드로 받겠다는 설정
+            googleResponseType: "code",
+            // openid는 요청하지 않아도 기본적으로 제공한다. email과 profile은 요청시 제공
+            googleScope: "openid email profile",
         };
     },
     methods: {
@@ -54,7 +61,11 @@ export default {
             window.location.href = "/";
         },
 
-        googleLogin() {},
+        googleLogin() {
+            // 로그인을 하고 나면 우리 화면으로 redirect가 될 거다.
+            const auth_uri = `${this.googleUrl}?client_id=${this.googleClientId}&redirect_uri=${this.googleRedirectUrl}&response_type=${this.googleResponseType}&scope=${this.googleScope}`;
+            window.location.href = auth_uri;
+        },
         kakaoLogin() {},
     },
 };
