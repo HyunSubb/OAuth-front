@@ -38,6 +38,7 @@ export default {
         return {
             email: "",
             password: "",
+
             googleUrl: "https://accounts.google.com/o/oauth2/auth",
             googleClientId: "32892685276-9kvlp8e23s5kd84md4unted08fnlpao9.apps.googleusercontent.com",
             googleRedirectUrl: "http://localhost:3000/oauth/google/redirect",
@@ -45,6 +46,11 @@ export default {
             googleResponseType: "code",
             // openid는 요청하지 않아도 기본적으로 제공한다. email과 profile은 요청시 제공
             googleScope: "openid email profile",
+
+            kakaoUrl: "https://kauth.kakao.com/oauth/authorize",
+            kakaoClientId: "4c59ef5dce393223983be904010b1b73",
+            kakaoRedirectUrl: "http://localhost:3000/oauth/kakao/redirect",
+            kakaoResponseType: "code",
         };
     },
     methods: {
@@ -66,7 +72,10 @@ export default {
             const auth_uri = `${this.googleUrl}?client_id=${this.googleClientId}&redirect_uri=${this.googleRedirectUrl}&response_type=${this.googleResponseType}&scope=${this.googleScope}`;
             window.location.href = auth_uri;
         },
-        kakaoLogin() {},
+        kakaoLogin() {
+            const auth_uri = `${this.kakaoUrl}?client_id=${this.kakaoClientId}&redirect_uri=${this.kakaoRedirectUrl}&response_type=${this.kakaoResponseType}`;
+            window.location.href = auth_uri;
+        },
     },
 };
 </script>

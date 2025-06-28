@@ -2,6 +2,7 @@
 // 또 /memberLogin url이 들어오면 어떤 화면으로 라우팅하는 url 패턴에 따라서 화면을 라우팅 해주는 코드를 여기다가 만들거다.
 
 import GoogleRedirect from "@/components/GoogleRedirect.vue";
+import KakaoRedirect from "@/components/KakaoRedirect.vue";
 import MemberCreate from "@/components/MemberCreate.vue";
 import MemberLogin from "@/components/MemberLogin.vue";
 import { createRouter, createWebHistory } from "vue-router";
@@ -20,6 +21,11 @@ const routes = [
     {
         path: "/oauth/google/redirect",
         component: GoogleRedirect,
+    },
+
+    {
+        path: "/oauth/kakao/redirect",
+        component: KakaoRedirect,
     },
 ];
 

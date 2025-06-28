@@ -1,5 +1,5 @@
 <template>
-    <div>구글 로그인 진행중...</div>
+    <div>카카오 로그인 진행중...</div>
 </template>
 
 <script>
