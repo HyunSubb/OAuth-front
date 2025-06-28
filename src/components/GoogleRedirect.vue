@@ -15,7 +15,7 @@ export default {
     methods: {
         async sendCodeToServer(code) {
             // 서버로 인가 코드를 넘겨줄 건데 응답으로 받는 것은 JWT를 받는다.
-            const response = await axios.post("http://localhost:8080/member/kakao/doLogin", { code });
+            const response = await axios.post("http://localhost:8080/member/google/doLogin", { code });
             const token = response.data.token;
             localStorage.setItem("token", token);
             window.location.href = "/";
